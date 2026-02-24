@@ -1,0 +1,102 @@
+/* ─────────────────────────────────────────
+   Tailwind CSS directives
+   (css.validate is disabled in .vscode/settings.json
+   so these no longer show "Unknown at rule" warnings)
+───────────────────────────────────────── */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ─────────────────────────────────────────
+   Base reset
+───────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* ─────────────────────────────────────────
+   Root / html
+───────────────────────────────────────── */
+html {
+  scroll-behavior: smooth;
+  --bg: #080808;
+}
+
+html.light {
+  --bg: #f8f8f8;
+}
+
+html.dark {
+  --bg: #080808;
+}
+
+/* ─────────────────────────────────────────
+   Body
+───────────────────────────────────────── */
+body {
+  background-color: #080808;
+  color: #ffffff;
+  font-family: 'DM Sans', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ─────────────────────────────────────────
+   Custom scrollbar
+───────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: #080808;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #222222;
+  border-radius: 99px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #7b61ff;
+}
+
+/* ─────────────────────────────────────────
+   Noise / grain texture overlay
+   z-index kept low (-1) so it sits behind
+   all content but above the background.
+   pointer-events: none ensures no blocking.
+───────────────────────────────────────── */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.4;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* ─────────────────────────────────────────
+   Focus ring reset (accessibility friendly)
+───────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #7b61ff;
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ─────────────────────────────────────────
+   Selection colour
+───────────────────────────────────────── */
+::selection {
+  background-color: #7b61ff40;
+  color: #ffffff;
+}
