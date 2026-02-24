@@ -46,15 +46,7 @@ export default function Footer() {
                 <div className="grid grid-cols-1 md:grid-cols-[1fr_auto_auto_auto] gap-12 mb-16">
                     {/* Brand blurb */}
                     <div className="max-w-xs">
-                        <Link to="/" className="flex items-center gap-2.5 mb-5 group">
-                            <div className="w-7 h-7 rounded-md bg-[#7B61FF] flex items-center justify-center">
-                                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                                    <rect x="1" y="1" width="5" height="5" rx="1" fill="white" />
-                                    <rect x="8" y="1" width="5" height="5" rx="1" fill="white" fillOpacity="0.6" />
-                                    <rect x="1" y="8" width="5" height="5" rx="1" fill="white" fillOpacity="0.6" />
-                                    <rect x="8" y="8" width="5" height="5" rx="1" fill="white" />
-                                </svg>
-                            </div>
+                        <Link to="/" className="inline-block mb-5">
                             <span className="font-syne font-bold text-[15px] tracking-tight" style={{ color: textPrimary }}>
                                 Prime<span className="text-[#7B61FF]">Ledger</span>
                             </span>
